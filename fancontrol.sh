@@ -13,9 +13,15 @@ f8="80"
 f9="90"
 f10="100"
 
+#Define Temperature-File
+tempfile="/var/temperature-humidity-monitor/www/data/rack_current.txt"
+
 #Read current temp
 
-currenttemp="40" #currently dummy, change later
+#currenttemp="40" #currently dummy, change later
+currenttemp_raw=`cat $tempfile`
+
+echo $currenttemp_raw
 
 #Initiate wiring-pi, mode PWM, PWM-Range 100
 gpio mode 1 pwm #Wiringpi Port 1 = Physical GPIO18
