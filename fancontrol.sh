@@ -18,10 +18,8 @@ tempfile="/var/temperature-humidity-monitor/www/data/rack_current.txt"
 
 #Read current temp
 
-#currenttemp="40" #currently dummy, change later
-currenttemp_raw=`cat $tempfile`
-
-echo $currenttemp_raw
+currenttemp=`awk -F':' '{ print $2 }' $tempfile`
+currenttemp=${currenttemp%.*} #round to integer
 
 #Initiate wiring-pi, mode PWM, PWM-Range 100
 gpio mode 1 pwm #Wiringpi Port 1 = Physical GPIO18
