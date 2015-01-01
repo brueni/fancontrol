@@ -2,16 +2,16 @@
 
 #Define Fan-Levels
 f0="0"
-f1="10"
-f2="20"
-f3="30"
-f4="40"
-f5="50"
-f6="60"
-f7="70"
-f8="80"
-f9="90"
-f10="100"
+f1="20"
+f2="23"
+f3="26"
+f4="29"
+f5="32"
+f6="35"
+f7="38"
+f8="42"
+f9="46"
+f10="50"
 
 #Define Temperature-File
 tempfile="/var/temperature-humidity-monitor/www/data/rack_current.txt"
