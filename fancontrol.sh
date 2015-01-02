@@ -71,3 +71,7 @@ pwmval=$fanlevel
 $gpiobin pwm 1 $pwmval
 
 echo "fanlevel $fanlog, pwm-value $pwmval"
+
+#Update RRD
+rrdinput="N:$fanlog"
+$(rrdtool update data/fan.rrd $rrdinput)
