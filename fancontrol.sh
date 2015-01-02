@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd `dirname $0`
 #Define Fan-Levels
 f0="0"
 f1="20"
@@ -16,24 +16,50 @@ f10="50"
 #Define Temperature-File
 tempfile="/var/temperature-humidity-monitor/www/data/rack_current.txt"
 
-#Read current temp
+#Define Location of GPIO-Binary
+gpiobin="/var/wiringPi/gpio/gpio"
 
+#Read current temp
 currenttemp=`awk -F':' '{ print $2 }' $tempfile`
 currenttemp=${currenttemp%.*} #round to integer
 
 #Initiate wiring-pi, mode PWM, PWM-Range 100
-gpio mode 1 pwm #Wiringpi Port 1 = Physical GPIO18
-gpio pwmr 100 #Range from 0 to 100
+$gpiobin mode 1 pwm #Wiringpi Port 1 = Physical GPIO18
+$gpiobin pwmr 100 #Range from 0 to 100
 
 #Get Fanlevel
-if ((currenttemp<=25))
+if ((currenttemp<=22))
 then
     fanlevel="$f0"
     fanlog="0"
-elif ((26<=currenttemp && currenttemp<=29))
+elif ((currenttemp == 23))
 then
-    fanlevel="$f3"
-    fanlog="3"
+    fanlevel="$f1"
+    fanlog="1"
+elif ((currenttemp == 24))
+then
+    fanlevel="$f2"
+    fanlog="2"
+elif ((currenttemp == 25))
+then
+    fanlevel="$f5"
+    fanlog="5"
+elif ((currenttemp == 26))
+then
+    fanlevel="$f6"
+    fanlog="6"
+elif ((currenttemp == 27))
+then
+    fanlevel="$f7"
+    fanlog="7"
+elif ((currenttemp == 28))
+then
+    fanlevel="$f8"
+    fanlog="8"
+elif ((currenttemp == 29))
+then
+    fanlevel="$f9"
+    fanlog="9"
 elif ((30<=currenttemp))
 then
     fanlevel="$f10"
@@ -42,6 +68,6 @@ fi
 
 #Set PWM
 pwmval=$fanlevel
-gpio pwm 1 $pwmval
+$gpiobin pwm 1 $pwmval
 
 echo "fanlevel $fanlog, pwm-value $pwmval"
