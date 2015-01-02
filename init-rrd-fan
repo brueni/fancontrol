@@ -1,0 +1,25 @@
+rrdtool create data/fan.rrd \
+    --step 300 \
+    DS:fan:GAUGE:600:0:100 \
+    RRA:AVERAGE:0.5:1:36 \
+    RRA:AVERAGE:0.5:3:96 \
+    RRA:AVERAGE:0.5:6:96 \
+    RRA:AVERAGE:0.5:24:84 \
+    RRA:AVERAGE:0.5:48:124 \
+    RRA:AVERAGE:0.5:144:186 \
+    RRA:AVERAGE:0.5:288:365 \
+    RRA:MIN:0.5:1:36 \
+    RRA:MIN:0.5:3:96 \
+    RRA:MIN:0.5:6:96 \
+    RRA:MIN:0.5:24:84 \
+    RRA:MIN:0.5:48:124 \
+    RRA:MIN:0.5:144:186 \
+    RRA:MIN:0.5:288:365 \
+    RRA:MAX:0.5:1:36 \
+    RRA:MAX:0.5:3:96 \
+    RRA:MAX:0.5:6:96 \
+    RRA:MAX:0.5:24:84 \
+    RRA:MAX:0.5:48:124 \
+    RRA:MAX:0.5:144:186 \
+    RRA:MAX:0.5:288:365
+
