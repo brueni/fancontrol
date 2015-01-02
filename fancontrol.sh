@@ -35,35 +35,35 @@ then
 elif ((currenttemp == 23))
 then
     fanlevel="$f1"
-    fanlog="1"
+    fanlog="10"
 elif ((currenttemp == 24))
 then
     fanlevel="$f2"
-    fanlog="2"
+    fanlog="20"
 elif ((currenttemp == 25))
 then
-    fanlevel="$f5"
-    fanlog="5"
+    fanlevel="$f4"
+    fanlog="40"
 elif ((currenttemp == 26))
 then
     fanlevel="$f6"
-    fanlog="6"
+    fanlog="60"
 elif ((currenttemp == 27))
 then
     fanlevel="$f7"
-    fanlog="7"
+    fanlog="70"
 elif ((currenttemp == 28))
 then
     fanlevel="$f8"
-    fanlog="8"
+    fanlog="80"
 elif ((currenttemp == 29))
 then
     fanlevel="$f9"
-    fanlog="9"
+    fanlog="90"
 elif ((30<=currenttemp))
 then
     fanlevel="$f10"
-    fanlog="10"
+    fanlog="100"
 fi
 
 #Set PWM
