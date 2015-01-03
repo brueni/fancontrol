@@ -14,13 +14,13 @@ f9="46"
 f10="50"
 
 #Define Temperature-File
-tempfile="/var/temperature-humidity-monitor/www/data/rack_current.txt"
+tempfile="/var/temperature-humidity-monitor/www/data/rack_t_current.txt"
 
 #Define Location of GPIO-Binary
 gpiobin="/var/wiringPi/gpio/gpio"
 
 #Read current temp
-currenttemp=`awk -F':' '{ print $2 }' $tempfile`
+currenttemp=`cat $tempfile`
 currenttemp=${currenttemp%.*} #round to integer
 
 #Initiate wiring-pi, mode PWM, PWM-Range 100
