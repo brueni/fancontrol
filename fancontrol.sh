@@ -39,39 +39,39 @@ $gpiobin pwmr 100 #Range from 0 to 100
 #Get Fanlevel
 if ((currentmode==0))
 then
-	if ((currenttemp<=22))
+	if ((currenttemp<=25))
 	then
 	    fanlevel="$f0"
 	    fanlog="0"
-	elif ((currenttemp == 23))
+	elif ((currenttemp == 26))
 	then
 	    fanlevel="$f1"
 	    fanlog="10"
-	elif ((currenttemp == 24))
+	elif ((currenttemp == 27))
 	then
 	    fanlevel="$f2"
 	    fanlog="20"
-	elif ((currenttemp == 25))
+	elif ((currenttemp == 28))
 	then
 	    fanlevel="$f4"
 	    fanlog="40"
-	elif ((currenttemp == 26))
+	elif ((currenttemp == 29))
 	then
 	    fanlevel="$f6"
 	    fanlog="60"
-	elif ((currenttemp == 27))
+	elif ((currenttemp == 30))
 	then
 	    fanlevel="$f7"
 	    fanlog="70"
-	elif ((currenttemp == 28))
+	elif ((currenttemp == 31))
 	then
 	    fanlevel="$f8"
 	    fanlog="80"
-	elif ((currenttemp == 29))
+	elif ((currenttemp == 32))
 	then
 	    fanlevel="$f9"
 	    fanlog="90"
-	elif ((30<=currenttemp))
+	elif ((33<=currenttemp))
 	then
 	    fanlevel="$f10"
 	    fanlog="100"
